@@ -1,3 +1,4 @@
+from typing import List
 #1. https://leetcode.com/problems/find-the-number-of-good-pairs-i/description/
 def numberOfPairs(self, nums1: List[int], nums2: List[int], k: int) -> int:
     res = 0
