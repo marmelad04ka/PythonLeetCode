@@ -12,7 +12,7 @@ def theMaximumAchievableX(self, num: int, t: int) -> int:
 
 #3. https://leetcode.com/problems/concatenation-of-array/description/
 def getConcatenation(self, nums: List[int]) -> List[int]:
-    return nums + nums
+    return nums + 1
 
 #4. https://leetcode.com/problems/build-array-from-permutation/description/
 def buildArray(self, nums: List[int]) -> List[int]:
