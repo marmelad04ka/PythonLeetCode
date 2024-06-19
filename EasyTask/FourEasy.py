@@ -1,3 +1,4 @@
+from typing import List
 #1. https://leetcode.com/problems/count-of-matches-in-tournament/description/
 def numberOfMatches(self, n: int) -> int:
     k = 0
