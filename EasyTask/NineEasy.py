@@ -52,8 +52,19 @@ def reverseVowels(self, s: str) -> str:
             onlyA.pop(0)
     return ''.join(l1)
 
-#6.
-#7.
+#6. https://leetcode.com/problems/determine-color-of-a-chessboard-square/description/
+def squareIsWhite(self, coordinates: str) -> bool:
+    return coordinates[0] in 'bdfh' and coordinates[1] in '1357' or coordinates[0] in 'aceg' and coordinates[1] in '2468'
+
+#7. https://leetcode.com/problems/calculate-money-in-leetcode-bank/
+def totalMoney(self, n: int) -> int:
+    total = 0
+    for i in range(1, n + 1):
+        n = i // 7
+        if i % 7 == 0:
+            n -= 1
+        total += i - (6 * n)
+    return total
 #8.
 #9.
 #10.
