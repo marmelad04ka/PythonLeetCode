@@ -79,5 +79,12 @@ def sortByBits(self, arr: List[int]) -> List[int]:
     for i in range(len(sorted_arr)):
         res.append(int(sorted_arr[i][:sorted_arr[i].find('.')]))
     return res
-#9.
+#9. https://leetcode.com/problems/counting-words-with-a-given-prefix/description/
+def prefixCount(self, words: List[str], pref: str) -> int:
+    res = 0
+    lenP = len(pref)
+    for i in words:
+        if i[:lenP] == pref:
+            res += 1
+    return res
 #10.
