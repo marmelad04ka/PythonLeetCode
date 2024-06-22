@@ -65,6 +65,19 @@ def totalMoney(self, n: int) -> int:
             n -= 1
         total += i - (6 * n)
     return total
-#8.
+#8. https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/description/
+def sort_arr(value):
+    return float(value.split('.')[1])
+
+def sortByBits(self, arr: List[int]) -> List[int]:
+    arr.sort()
+    strArr = []
+    res = []
+    for i in arr:
+        strArr.append(str(i) + '.' + str(bin(i).count('1')))
+    sorted_arr = sorted(strArr, key=sort_arr)
+    for i in range(len(sorted_arr)):
+        res.append(int(sorted_arr[i][:sorted_arr[i].find('.')]))
+    return res
 #9.
 #10.
