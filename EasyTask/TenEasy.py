@@ -17,7 +17,17 @@ def finalPrices(self, prices: List[int]) -> List[int]:
             res.append(prices[i] - mid)
             mid = 0
     return res
-#2.
+
+#2. https://leetcode.com/problems/find-greatest-common-divisor-of-array/description/
+def findGCD(self, nums: List[int]) -> int:
+    larg = max(nums)
+    small = min(nums)
+    res = 0
+    for i in range(small, 0, -1):
+        if small%i == 0 and larg%i == 0:
+            res = i
+            break
+    return res
 #3.
 #4.
 #5.
