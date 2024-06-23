@@ -32,7 +32,14 @@ def findGCD(self, nums: List[int]) -> int:
 #3. https://leetcode.com/problems/generate-a-string-with-characters-that-have-odd-counts/description/
 def generateTheString(self, n: int) -> str:
     return 'a' * (n - 1) + 'b' if n%2 == 0 else 'a' * n
-#4.
+
+#4. https://leetcode.com/problems/sum-of-unique-elements/description/
+def sumOfUnique(self, nums: List[int]) -> int:
+    res = 0
+    for i in nums:
+        if nums.count(i) == 1:
+            res += i
+    return res
 #5.
 #6.
 #7.
