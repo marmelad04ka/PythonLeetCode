@@ -40,7 +40,15 @@ def sumOfUnique(self, nums: List[int]) -> int:
         if nums.count(i) == 1:
             res += i
     return res
-#5.
+
+#5. https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/description/
+def areOccurrencesEqual(self, s: str) -> bool:
+    nonU = list(set(s))
+    sumCh = s.count(s[0])
+    for i in nonU:
+        if s.count(i) != sumCh: return False
+        sumCh = s.count(i)
+    return True
 #6.
 #7.
 #8.
