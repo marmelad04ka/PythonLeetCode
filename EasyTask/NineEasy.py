@@ -87,4 +87,19 @@ def prefixCount(self, words: List[str], pref: str) -> int:
         if i[:lenP] == pref:
             res += 1
     return res
-#10.
+#10. https://leetcode.com/problems/delete-greatest-value-in-each-row/
+def deleteGreatestValue(self, grid: List[List[int]]) -> int:
+    res = 0
+    max1 = 0
+    k = 0
+    while k != 1:
+        for i in range(len(grid)):
+            if len(grid[i]) == 0:
+                k = 1
+                break
+            if max(grid[i]) > max1:
+                max1 = max(grid[i])
+            grid[i].remove(max(grid[i]))
+        res += max1
+        max1 = 0
+    return res
