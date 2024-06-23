@@ -28,7 +28,10 @@ def findGCD(self, nums: List[int]) -> int:
             res = i
             break
     return res
-#3.
+
+#3. https://leetcode.com/problems/generate-a-string-with-characters-that-have-odd-counts/description/
+def generateTheString(self, n: int) -> str:
+    return 'a' * (n - 1) + 'b' if n%2 == 0 else 'a' * n
 #4.
 #5.
 #6.
