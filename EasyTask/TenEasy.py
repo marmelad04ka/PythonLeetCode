@@ -49,8 +49,51 @@ def areOccurrencesEqual(self, s: str) -> bool:
         if s.count(i) != sumCh: return False
         sumCh = s.count(i)
     return True
-#6.
-#7.
-#8.
-#9.
-#10.
+
+#6. https://leetcode.com/problems/sum-of-digits-in-base-k/description/
+def sumBase(self, n: int, k: int) -> int:
+    res = []
+    while n > 0:
+        res.append(n - int(n/k) * k)
+        n = int(n/k)
+    res.reverse()
+    return sum(res)
+
+#7. https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/
+def countNegatives(self, grid: List[List[int]]) -> int:
+    res = 0
+    for i in grid:
+        for ii in i:
+            if ii < 0:
+                res += 1
+    return res
+
+#8. https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
+def findNumbers(self, nums: List[int]) -> int:
+    res = 0
+    for i in nums:
+        if len(str(i))%2 == 0:
+            res += 1
+    return res
+
+#9. https://leetcode.com/problems/number-of-senior-citizens/description/
+def countSeniors(self, details: List[str]) -> int:
+    res = 0
+    for i in details:
+        if int(i[11:13]) > 60:
+            res += 1
+    return res
+
+#10. https://leetcode.com/problems/n-repeated-element-in-size-2n-array/description/
+def repeatedNTimes(self, nums: List[int]) -> int:
+    nums.sort()
+    res = 0
+    mid = 0
+    mid1 = 0
+    for i in range(len(nums) - 1):
+        if nums[i] == nums[i + 1]:
+            mid += 1
+        if mid > mid1:
+            mid1 = mid
+            res = nums[i]
+    return res
