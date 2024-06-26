@@ -60,5 +60,29 @@ def judgeCircle(self, moves: str) -> bool:
 def minimizedStringLength(self, s: str) -> int:
     return len(list(set(s)))
 
-#9.
-#10.
+#9. https://leetcode.com/problems/hamming-distance/description/
+def hammingDistance(self, x: int, y: int) -> int:
+    binX = str(bin(x)[2:])
+    binY = str(bin(y)[2:])
+    res = 0
+    if len(binY) > len(binX):
+        mid = (len(binY) - len(binX)) * '0'
+        binX = mid + binX
+    elif len(binY) < len(binX):
+        mid = (len(binX) - len(binY)) * '0'
+        binY = mid + binY
+    else:
+        binX = str(bin(x)[2:])
+        binY = str(bin(y)[2:])
+    for i in range(len(binX)):
+        if binX[i] != binY[i]:
+            res += 1
+    return res
+
+#10. https://leetcode.com/problems/find-the-peaks/description/
+def findPeaks(self, mountain: List[int]) -> List[int]:
+    res = []
+    for i in range(1, len(mountain) - 1):
+        if mountain[i] > mountain[i + 1] and mountain[i] > mountain[i - 1]:
+            res.append(i)
+    return res
