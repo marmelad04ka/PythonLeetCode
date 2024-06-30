@@ -73,6 +73,18 @@ def evenOddBit(self, n: int) -> List[int]:
             else: res[1] += 1
     return res
 
-#8.
+#8. https://leetcode.com/problems/island-perimeter/description/
+def islandPerimeter(self, grid: List[List[int]]) -> int:
+    for i in grid:
+        i += 'a'
+    fullPer = sum([i.count(1) for i in grid]) * 4
+    for i in grid:
+        for ii in range(len(i) - 1):
+            if i[ii] == 1 and i[ii] == i[ii + 1]: fullPer -= 2
+    for i in range(len(grid[0])):
+        for j in range(len(grid)-1):
+            if grid[j][i] == 1 and grid[j][i] == grid[j+1][i]: fullPer -= 2
+    return fullPer
+
 #9.
 #10.
