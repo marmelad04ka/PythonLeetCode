@@ -63,7 +63,16 @@ def canBeTypedWords(self, text: str, brokenLetters: str) -> int:
                 mid += 1
     return len(text.split(" ")) - 1 - res
 
-#7.
+#7. https://leetcode.com/problems/number-of-even-and-odd-bits/description/
+def evenOddBit(self, n: int) -> List[int]:
+    res = [0, 0]
+    binNum = [int(i) for i in bin(n)[2:][::-1]]
+    for i in range(len(binNum)):
+        if binNum[i] == 1:
+            if i%2 == 0: res[0] += 1
+            else: res[1] += 1
+    return res
+
 #8.
 #9.
 #10.
