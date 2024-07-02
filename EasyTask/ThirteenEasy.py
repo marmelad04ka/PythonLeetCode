@@ -86,5 +86,20 @@ def islandPerimeter(self, grid: List[List[int]]) -> int:
             if grid[j][i] == 1 and grid[j][i] == grid[j+1][i]: fullPer -= 2
     return fullPer
 
-#9.
-#10.
+#9. https://leetcode.com/problems/clear-digits/description/
+def clearDigits(self, s: str) -> str:
+    res = ''
+    count = 0
+    for i in range(len(s)-1, -1, -1):
+        if s[i] in '1234567890': count += 1
+        if s[i] not in '1234567890' and count == 0: res += s[i]
+        if s[i] not in '1234567890' and count > 0:
+            count -= 1
+    return res[::-1]
+
+#10. https://leetcode.com/problems/smallest-index-with-equal-value/description/
+def smallestEqual(self, nums: List[int]) -> int:
+    res = []
+    for i in range(len(nums)):
+        if i%10 == nums[i]: res.append(i)
+    return -1 if len(res) == 0 else min(res)
