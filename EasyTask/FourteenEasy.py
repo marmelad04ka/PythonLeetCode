@@ -21,10 +21,41 @@ def fizzBuzz(self, n: int) -> List[str]:
         else: res.append(str(i))
     return res
 
-#4.
-#5.
-#6.
-#7.
-#8.
+#4. https://leetcode.com/problems/make-array-zero-by-subtracting-equal-amounts/description/
+def minimumOperations(self, nums: List[int]) -> int:
+    return len(set(nums)) if 0 not in nums else len(set(nums))-1
+
+#5. https://leetcode.com/problems/find-common-characters/description/
+def commonChars(self, words: List[str]) -> List[str]:
+    res = []
+    count = 0
+    for i in words[0]:
+        for ii in range(1, len(words)):
+            if i in words[ii]:
+                words[ii] = words[ii].replace(i, '', 1)
+                count += 1
+        if count == len(words) - 1: res.append(i)
+        count = 0
+    return res
+
+#6. https://leetcode.com/problems/maximum-value-of-a-string-in-an-array/description/
+def maximumValue(self, strs: List[str]) -> int:
+    res = []
+    for i in strs:
+        try:
+            res.append(int(i))
+        except ValueError: res.append(len(i))
+    return max(res)
+
+#7. https://leetcode.com/problems/check-if-number-has-equal-digit-count-and-digit-value/description/
+def digitCount(self, num: str) -> bool:
+    for i in range(len(num)):
+        if int(num[i]) != num.count(str(i)): return False
+    return True
+
+#8. https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays/description/
+def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
+    return sorted(target) == sorted(arr)
+
 #9.
 #10.
