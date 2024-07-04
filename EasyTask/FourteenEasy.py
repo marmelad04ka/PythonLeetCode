@@ -57,5 +57,26 @@ def digitCount(self, num: str) -> bool:
 def canBeEqual(self, target: List[int], arr: List[int]) -> bool:
     return sorted(target) == sorted(arr)
 
-#9.
-#10.
+#9. https://leetcode.com/problems/transpose-matrix/description/
+def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
+    res = [[] for i in range(len(matrix) - (len(matrix) - len(matrix[0])))]
+    mid = []
+    for i in range(len(matrix)- (len(matrix) - len(matrix[0]))):
+        for ii in range(len(matrix)):
+            mid.append(matrix[ii][i])
+        res[i] += mid
+        mid.clear()
+    return res
+
+#10. https://leetcode.com/problems/relative-ranks/description/
+def findRelativeRanks(self, score: List[int]) -> List[str]:
+    scoreSort = score.copy()
+    scoreSort.sort(reverse= True)
+    result = []
+    for i in score:
+        ind = scoreSort.index(i)
+        if ind == 0: result.append('Gold Medal')
+        elif ind == 1: result.append('Silver Medal')
+        elif ind == 2: result.append('Bronze Medal')
+        else: result.append(str(ind + 1))
+    return result
