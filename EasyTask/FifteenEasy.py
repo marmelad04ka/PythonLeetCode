@@ -97,4 +97,9 @@ def countCharacters(self, words: List[str], chars: str) -> int:
         count = 0
     return sumW
 
-#10.
+#10. https://leetcode.com/problems/count-common-words-with-one-occurrence/description/
+def countWords(self, words1: List[str], words2: List[str]) -> int:
+    res = 0
+    for i in words1:
+        if words1.count(i) == 1 and words2.count(i) == 1: res += 1
+    return res
