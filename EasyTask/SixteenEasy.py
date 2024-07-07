@@ -37,9 +37,58 @@ def findTheArrayConcVal(self, nums: List[int]) -> int:
     if len(nums)%2 != 0: sumAll += nums[int(len(nums)/2)]
     return sumAll
 
-#5.
-#6.
-#7.
-#8.
-#9.
-#10.
+#5. https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/description/
+def simple_number(n):
+    if n == 2: return True
+    if n%2 == 0 or n <= 1: return False
+    for i in range(3, int(n * 0.5) + 1, 2):
+        if n%i == 0: return False
+    return True
+def countPrimeSetBits(self, left: int, right: int) -> int:
+    result = 0
+    for i in range(left, right + 1):
+        if simple_number(i.bit_count()): result += 1
+    return result
+
+#6. https://leetcode.com/problems/check-if-numbers-are-ascending-in-a-sentence/description/
+def areNumbersAscending(self, s: str) -> bool:
+    result = 0
+    count = 0
+    for i in s.split(" "):
+        if i.isdigit():
+            if count > 0 and result >= int(i): return False
+            result = int(i)
+            count += 1
+    return True
+
+#7. https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/description/
+def canMakeArithmeticProgression(self, arr: List[int]) -> bool:
+    arr.sort()
+    for i in range(len(arr) - 1):
+        if arr[i] + (arr[1] - arr[0]) != arr[i + 1]: return False
+    return True
+
+#8. https://leetcode.com/problems/minimum-string-length-after-removing-substrings/description/
+def minLength(self, s: str) -> int:
+    s1 = s
+    while True:
+        newS = s1
+        s1 = s1.replace('AB', "")
+        s1 = s1.replace('CD', "")
+        if newS == s1: break
+    return len(s1)
+
+#9. https://leetcode.com/problems/find-the-encrypted-string/description/
+def getEncryptedString(self, s: str, k: int) -> str:
+    n = k%len(s)
+    res = ''
+    for i in range(len(s)):
+        if i + 1 + n > len(s):
+            res += s[(i + n) - len(s)]
+        else: res += s[i + n]
+    return res
+
+#10. https://leetcode.com/problems/palindrome-number/description/
+def isPalindrome(self, x: int) -> bool:
+    strX = list(str(x))[::-1]
+    return str(x) == ''.join(strX)
