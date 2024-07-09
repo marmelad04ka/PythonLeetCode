@@ -61,7 +61,52 @@ def modifiedMatrix(self, matrix: List[List[int]]) -> List[List[int]]:
             if matrix[i][j] < 0: matrix[i][j] = maxNC[j]
     return matrix
 
-#7.
-#8.
-#9.
-#10.
+#7. https://leetcode.com/problems/goat-latin/description/
+def toGoatLatin(self, sentence: str) -> str:
+    l1 = sentence.split(" ")
+    addStr = 'ma'
+    res = ''
+    for i in range(len(l1)):
+        if l1[i][0] in 'aeiouAEIOU':
+            res += l1[i] + addStr + 'a' * (i + 1) + " "
+        else: res += l1[i][1:] + l1[i][0] +  addStr + 'a' * (i + 1) + " "
+    return res.strip()
+
+#8. https://leetcode.com/problems/make-the-string-great/description/
+def makeGood(self, s: str) -> str:
+    if len(s) == 1: return s
+    res = ''
+    count = 0
+    while True:
+        for i in range(len(s) - 1):
+            if abs(ord(s[i]) - ord(s[i + 1])) == 32:
+                res = s[:i] + s[i + 2:]
+                count += 1
+        if count == 0: return s
+        if res == s: break
+        s = res
+    return res
+
+#9. https://leetcode.com/problems/alternating-digit-sum/description/
+def alternateDigitSum(self, n: int) -> int:
+    strN = str(n)
+    result = 0
+    for i in range(len(strN)):
+        if i%2 == 0: result += int(strN[i])
+        else: result += -int(strN[i])
+    return result
+
+#10. https://leetcode.com/problems/intersection-of-multiple-arrays/description/
+def intersection(self, nums: List[List[int]]) -> List[int]:
+    res = []
+    count = 0
+    for i in nums[0]:
+        for j in range(len(nums)):
+            if i in nums[j]: count = 1
+            else:
+                count = 0
+                break
+        if count != 0: res.append(i)
+        count = 0
+    res.sort()
+    return res
