@@ -1,4 +1,6 @@
 from typing import List
+from collections import Counter
+
 #1. https://leetcode.com/problems/distribute-candies/description/
 def distributeCandies(self, candyType: List[int]) -> int:
     return len(sorted(set(candyType))[:int(len(candyType) / 2)])
@@ -28,10 +30,61 @@ def findComplement(self, num: int) -> int:
         else: numB += '1'
     return binary_to_decimal(numB)
 
-#4.
-#5.
-#6.
-#7.
-#8.
-#9.
+#4. https://leetcode.com/problems/apply-operations-to-an-array/description/
+def applyOperations(self, nums: List[int]) -> List[int]:
+    result = []
+    for i in range(len(nums)):
+        if i == len(nums) - 1:
+            if nums[i] != 0: result.append(nums[i])
+            break
+        if nums[i] == nums[i + 1]:
+            nums[i] += nums[i + 1]
+            nums[i + 1] = 0
+        if nums[i] != 0: result.append(nums[i])
+    return result + [0] * nums.count(0)
+
+#5. https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/description/
+def findColumnWidth(self, matrix: List[List[int]]) -> List[int]:
+    result = []
+    lenS = 0
+    for i in range(len(matrix)- (len(matrix) - len(matrix[0]))):
+        for ii in range(len(matrix)):
+            if lenS < len(str(matrix[ii][i])):
+                lenS = len(str(matrix[ii][i]))
+        result.append(lenS)
+        lenS = 0
+    return result
+
+#6. https://leetcode.com/problems/find-the-middle-index-in-array/description/
+def findMiddleIndex(self, nums: List[int]) -> int:
+    left_sum, total_sum = 0, sum(nums)
+    for i, n in enumerate(nums):
+        right_sum = total_sum - left_sum - n
+        if left_sum == right_sum:
+            return i
+        left_sum += n
+    return -1
+
+#7. https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
+def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
+    s3 = s1.split(" ") + s2.split(" ")
+    unique = [val for val, cnt in Counter(s3).items() if cnt == 1]
+    return unique
+
+#8. https://leetcode.com/problems/missing-number/description/
+def missingNumber(self, nums: List[int]) -> int:
+    nums2 = [i for i in range(0, max(nums) + 1)]
+    if sum(nums2) - sum(nums) == 0:
+        if min(nums) == 0: return max(nums) + 1
+        else: return 0
+    return  sum(nums2) - sum(nums)
+
+#9. https://leetcode.com/problems/find-lucky-integer-in-an-array/description/
+def findLucky(self, arr: List[int]) -> int:
+    result = []
+    arr1 = set(arr)
+    for i in arr1:
+        if i == arr.count(i): result.append(i)
+    return max(result) if len(result) != 0 else -1
+
 #10.
