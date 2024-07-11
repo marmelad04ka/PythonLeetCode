@@ -87,4 +87,18 @@ def findLucky(self, arr: List[int]) -> int:
         if i == arr.count(i): result.append(i)
     return max(result) if len(result) != 0 else -1
 
-#10.
+#10. https://leetcode.com/problems/unique-email-addresses/description/
+def numUniqueEmails(self, emails: List[str]) -> int:
+    numDog, numPlus = 0, 0
+    result = []
+    str1 = ''
+    for i in emails:
+        numDog = i.find("@")
+        if '+' not in i: str1 += i[:numDog].replace('.', '')
+        else:
+            numPlus = i.find("+")
+            str1 += i[:numPlus].replace('.', '')
+        str1 += i[numDog:]
+        if str1 not in result :result.append(str1)
+        str1 = ""
+    return len(result)
