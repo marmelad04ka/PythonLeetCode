@@ -101,6 +101,24 @@ def convertTime(self, current: str, correct: str) -> int:
     minute -= (minute//5) * 5
     count += minute
     return count
-#8.
-#9.
-#10.
+#8. https://leetcode.com/problems/count-the-number-of-special-characters-i/description/
+def numberOfSpecialChars(self, word: str) -> int:
+    count = 0
+    uniq = set(word.lower())
+    for i in uniq:
+        if i in word and i.upper() in word: count += 1
+    return count
+
+#9. https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/description/
+def countPrefixSuffixPairs(self, words: List[str]) -> int:
+    count = 0
+    for i in range(len(words)):
+        for ii in range(i+ 1, len(words), 1):
+            if words[i] == (words[ii][:len(words[i])]) and (words[i] == words[ii][len(words[ii]) - len(words[i]):]): count += 1
+    return count
+
+#10. https://leetcode.com/problems/majority-element/description/
+def majorityElement(self, nums: List[int]) -> int:
+    l1 = set(nums)
+    for i in l1:
+        if nums.count(i) > (len(nums)/2): return i
