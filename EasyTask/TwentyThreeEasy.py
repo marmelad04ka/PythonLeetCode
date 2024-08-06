@@ -31,10 +31,55 @@ def isMonotonic(self, nums: List[int]) -> bool:
         if (nums[i] >= nums[i - 1] and nums[i] <= nums[i + 1]) or (nums[i] <= nums[i - 1] and nums[i] >= nums[i + 1]): count = 0
         else: return False
     return True
-#4.
-#5.
-#6.
-#7.
-#8.
+
+#4. https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+    setNums = set(nums)
+    res = []
+    for i in range(1, len(nums) + 1):
+        if i not in setNums:
+            res.append(i)
+    return res
+
+#5. https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/description/
+def findSpecialInteger(self, arr: List[int]) -> int:
+    bigChe = len(arr) * 0.25
+    count = 1
+    for i in range(len(arr) - 1):
+        if arr[i] == arr[i + 1]:
+            count += 1
+        else:
+            if count > bigChe: return arr[i]
+            count = 1
+    return arr[-1]
+
+#6. https://leetcode.com/problems/complement-of-base-10-integer/description/
+def bitwiseComplement(self, n: int) -> int:
+    binNRepl = ''
+    for i in bin(n)[2:]:
+        if i == '1': binNRepl += '0'
+        else: binNRepl += '1'
+    return int(binNRepl, 2)
+
+#7. https://leetcode.com/problems/best-poker-hand/description/
+def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+    dirCard = {}
+    if len(set(suits)) == 1: return 'Flush'
+    for i in ranks:
+        if i in dirCard: dirCard[i] += 1
+        else: dirCard[i] = 1
+    max_key = max(dirCard, key=dirCard.get)
+    if dirCard.get(max_key) >= 3: return 'Three of a Kind'
+    if dirCard.get(max_key) == 2: return 'Pair'
+    return 'High Card'
+
+#8. https://leetcode.com/problems/average-value-of-even-numbers-that-are-divisible-by-three/description/
+def averageValue(self, nums: List[int]) -> int:
+    allN, sumN = 0, 0
+    for i in tuple(nums):
+        if i%3 == 0 and i%2 == 0:
+            sumN += i
+            allN += 1
+    return 0 if allN == 0 else int(sumN/allN)
 #9.
 #10.
