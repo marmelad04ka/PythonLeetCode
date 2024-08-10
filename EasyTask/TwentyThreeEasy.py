@@ -81,5 +81,26 @@ def averageValue(self, nums: List[int]) -> int:
             sumN += i
             allN += 1
     return 0 if allN == 0 else int(sumN/allN)
-#9.
-#10.
+
+#9. https://leetcode.com/problems/kth-missing-positive-number/description/
+def findKthPositive(self, arr: List[int], k: int) -> int:
+    count = 0
+    for i in range(1, arr[-1] + 1):
+        if i not in arr:
+            count += 1
+        if count == k: return i
+    return arr[-1] + k - count
+
+#10. https://leetcode.com/problems/consecutive-characters/description/
+def maxPower(self, s: str) -> int:
+    arr = []
+    count = 1
+    for i in range(len(s)):
+        if i == len(s) - 1:
+            arr.append(count)
+            break
+        if s[i] == s[i + 1]: count += 1
+        else:
+            arr.append(count)
+            count = 1
+    return max(arr)
