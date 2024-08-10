@@ -37,9 +37,39 @@ def countElements(self, nums: List[int]) -> int:
         if i != minN and i != maxN: count += 1
     return count
 
-#5.
-#6.
-#7.
+#5. https://leetcode.com/problems/find-minimum-operations-to-make-all-elements-divisible-by-three/description/
+def minimumOperations(self, nums: List[int]) -> int:
+    return sum([1 for i in nums if i%3 != 0])
+
+#6. https://leetcode.com/problems/odd-string-difference/description/
+def oddString(self, words: List[str]) -> str:
+    arr = [[],[],[]]
+    mid = []
+    for j in range(3):
+        for i in range(1, len(words[j])):
+            arr[j].append(ord(words[j][i]) - ord(words[j][i - 1]))
+    if arr[0] != arr[1] and arr[0] != arr[2]: return words[0]
+    elif arr[0] != arr[1] and arr[0] == arr[2]: return words[1]
+    elif arr[0] == arr[1] and arr[0] != arr[2]: return words[2]
+    else:
+        for i in range(3, len(words)):
+            for j in range(1, len(words[i])):
+                mid.append(ord(words[i][j]) - ord(words[i][j - 1]))
+            if arr[0] != mid: return words[i]
+            mid = []
+    return ''
+
+#7. https://leetcode.com/problems/slowest-key/description/
+def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
+    arr = []
+    res = ''
+    for i in range(len(releaseTimes)):
+        if i == 0: arr.append(releaseTimes[i])
+        else: arr.append(releaseTimes[i] - releaseTimes[i - 1])
+    maxArr = max(arr)
+    for i in range(len(arr)):
+        if arr[i] == maxArr: res += keysPressed[i]
+    return max(res)
 #8.
 #9.
 #10.
