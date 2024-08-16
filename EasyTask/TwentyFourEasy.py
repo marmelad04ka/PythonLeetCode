@@ -70,6 +70,26 @@ def slowestKey(self, releaseTimes: List[int], keysPressed: str) -> str:
     for i in range(len(arr)):
         if arr[i] == maxArr: res += keysPressed[i]
     return max(res)
-#8.
-#9.
-#10.
+
+#8. https://leetcode.com/problems/rotate-string/description/
+def rotateString(self, s: str, goal: str) -> bool:
+    for i in range(len(s)):
+        if s[i:] + s[:i] == goal: return True
+    return False
+
+#9. https://leetcode.com/problems/minimum-common-value/description/
+def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
+    arr = list(set(nums1)) + list(set(nums2))
+    arr.sort()
+    for i in range(len(arr) - 1):
+        if arr[i] == arr[i + 1]: return arr[i]
+    return -1
+
+#10. https://leetcode.com/problems/intersection-of-two-arrays-ii/description/
+def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+    arr = set(nums1)
+    result = []
+    for i in arr:
+        if i in nums2:
+            result += [i] * min(nums1.count(i), nums2.count(i))
+    return result
