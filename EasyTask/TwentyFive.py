@@ -41,10 +41,59 @@ def lemonadeChange(self, bills: List[int]) -> bool:
                     change.remove(5)
             except ValueError: return False
     return True
-#4.
-#5.
-#6.
-#7.
-#8.
+
+#4. https://leetcode.com/problems/minimum-right-shifts-to-sort-the-array/description/
+def minimumRightShifts(self, nums: List[int]) -> int:
+    sortN = sorted(nums)
+    count = -1
+    for i in range(len(nums)):
+        count += 1
+        if sortN == nums[-i:] + nums[:-i]: return count
+    return -1
+
+#5. https://leetcode.com/problems/check-if-all-1s-are-at-least-length-k-places-away/description/
+def kLengthApart(self, nums: List[int], k: int) -> bool:
+    count = k
+    for i in nums:
+        if i == 1 and count < k: return False
+        elif i == 1 and count >= k: count = 0
+        else: count += 1
+    return True
+
+#6. https://leetcode.com/problems/happy-number/description/
+def isHappy(self, n: int) -> bool:
+    if n == 7: return True
+    sumN = n
+    arr = []
+    while sumN != 1:
+        sumN = sum([int(i) ** 2 for i in str(sumN)])
+        if sumN in arr: return False
+        arr.append(sumN)
+    return  sumN == 1
+
+#7. https://leetcode.com/problems/detect-capital/description/
+def detectCapitalUse(self, words: str) -> bool:
+    return words.islower() or words.isupper() or (words[0].isupper() and words[1:].islower())
+
+#8. https://leetcode.com/problems/day-of-the-week/description/
+def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
+    dayWeek = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    arrMonth = [0,0,3,3,6,8,11,13,16,19,21,24,26]
+    y1 = 1971
+    n = year - y1
+    for i in range(y1, year):
+        if (i % 4 == 0 and i % 100 != 0) or i % 400 == 0:
+            n += 1
+    if (n + 5) % 7 != 0: m = (n + 5) % 7
+    else: m = 7
+    if (m + arrMonth[month] + day - 1)%7 != 0: d = (m + arrMonth[month] + day - 1)%7
+    else: d = 7
+    if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
+        if month in [1,2]:
+            if d == 7: return dayWeek[0]
+            else: return dayWeek[d]
+        if d == 7: return dayWeek[1]
+        else: return dayWeek[d + 1]
+    else: return dayWeek[d]
 #9.
 #10.
