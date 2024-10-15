@@ -95,5 +95,25 @@ def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
         if d == 7: return dayWeek[1]
         else: return dayWeek[d + 1]
     else: return dayWeek[d]
-#9.
-#10.
+
+#9. https://leetcode.com/problems/strong-password-checker-ii/description/
+def strongPasswordCheckerII(self, password: str) -> bool:
+    if len(password) < 8: return False
+    arr = [0, 0, 0, 0]
+    password += " "
+    for i in range(len(password) - 1):
+        if password[i] == password[i + 1]: return False
+        if password[i].isupper():
+            arr[1] += 1
+        elif password[i].islower():
+            arr[0] += 1
+        elif password[i].isdigit():
+            arr[2] += 1
+        elif password[i] in "!@#$%^&*()-+":
+            arr[3] += 1
+        return arr[0] >= 1 and arr[1] >= 1 and arr[2] >= 1 and arr[3] >= 1
+
+#10. https://leetcode.com/problems/plus-one/description/
+def plusOne(self, digits: List[int]) -> List[int]:
+    result = list(map(int, str(int(''.join(map(str, digits))) + 1)))
+    return result
