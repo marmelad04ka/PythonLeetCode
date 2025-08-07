@@ -17,7 +17,19 @@ def removeDigit(self, number: str, digit: str) -> str:
             result = int(number[:i] + number[i + 1:])
     return str(result)
 
-#4.
+#4. https://leetcode.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/description/
+
+def modifyString(self, s: str) -> str:
+    al = 'qwertyuiopasdfghjklzxcvbnm'
+    s = '1' + s + '1'
+    arr = [i for i in s]
+    for i in range(0, len(arr)):
+        if arr[i] == '?':
+            al = al.replace(arr[i - 1], '')
+            al = al.replace(arr[i + 1], '')
+            arr[i] = al[0]
+            al = 'qwertyuiopasdfghjklzxcvbnm'
+    return ''.join(arr)[1:-1]
 #5.
 #6.
 #7.
