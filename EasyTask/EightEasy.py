@@ -1,5 +1,5 @@
 from typing import List
-#1. https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/description/
+#1309. https://leetcode.com/problems/decrypt-string-from-alphabet-to-integer-mapping/description/
 def freqAlphabets(self, s: str) -> str:
     alphabet = '0abcdefghijklmnopqrstuvwxyz'
     l1 = list(s)
@@ -14,7 +14,7 @@ def freqAlphabets(self, s: str) -> str:
         res += alphabet[int(l1[i])]
     return res
 
-#2. https://leetcode.com/problems/count-pairs-that-form-a-complete-day-i/description/
+#3184. https://leetcode.com/problems/count-pairs-that-form-a-complete-day-i/description/
 def countCompleteDayPairs(self, hours: List[int]) -> int:
     res = 0
     for i in range(len(hours)):
@@ -23,7 +23,7 @@ def countCompleteDayPairs(self, hours: List[int]) -> int:
                 res += 1
     return res
 
-#3. https://leetcode.com/problems/separate-the-digits-in-an-array/description/
+#2553. https://leetcode.com/problems/separate-the-digits-in-an-array/description/
 def separateDigits(self, nums: List[int]) -> List[int]:
     res = []
     for i in range(len(nums)):
@@ -36,7 +36,7 @@ def separateDigits(self, nums: List[int]) -> List[int]:
             res.append(b[ii])
     return res
 
-#4. https://leetcode.com/problems/count-elements-with-maximum-frequency/description/
+#3005. https://leetcode.com/problems/count-elements-with-maximum-frequency/description/
 def maxFrequencyElements(self, nums: List[int]) -> int:
     dir = {}
     for i in nums:
@@ -48,18 +48,18 @@ def maxFrequencyElements(self, nums: List[int]) -> int:
     arr1.sort()
     return arr1.count(max(arr1)) * max(arr1)
 
-#5. https://leetcode.com/problems/number-of-common-factors/description/
+#2427. https://leetcode.com/problems/number-of-common-factors/description/
 def commonFactors(self, a: int, b: int) -> int:
     res = 0
     for i in range(1, b + 1):
         if a%i == 0 and b%i == 0:res += 1
     return res
 
-#6. https://leetcode.com/problems/reverse-string/description/
+#344. https://leetcode.com/problems/reverse-string/description/
 def reverseString(self, s: List[str]) -> None:
     s.reverse()
 
-#7. https://leetcode.com/problems/self-dividing-numbers/description/
+#728. https://leetcode.com/problems/self-dividing-numbers/description/
 def selfDividingNumbers(self, left: int, right: int) -> List[int]:
     res = []
     mid = 0
@@ -77,7 +77,7 @@ def selfDividingNumbers(self, left: int, right: int) -> List[int]:
         mid = 0
     return res
 
-#8. https://leetcode.com/problems/determine-if-string-halves-are-alike/description/
+#1704. https://leetcode.com/problems/determine-if-string-halves-are-alike/description/
 def halvesAreAlike(self, s: str) -> bool:
     firstH = 0
     lenS = int(len(s)/2)
@@ -86,10 +86,10 @@ def halvesAreAlike(self, s: str) -> bool:
         elif s[i] in 'aeiouAEIOU': firstH -= 1
     return firstH == 0
 
-#9. https://leetcode.com/problems/remove-trailing-zeros-from-a-string/description/
+#2710. https://leetcode.com/problems/remove-trailing-zeros-from-a-string/description/
 def removeTrailingZeros(self, num: str) -> str:
     return str(int(num[::-1]))[::-1]
 
-#10. https://leetcode.com/problems/calculate-delayed-arrival-time/description/
+#2651. https://leetcode.com/problems/calculate-delayed-arrival-time/description/
 def findDelayedArrivalTime(self, arrivalTime: int, delayedTime: int) -> int:
     return (arrivalTime + delayedTime)%24
