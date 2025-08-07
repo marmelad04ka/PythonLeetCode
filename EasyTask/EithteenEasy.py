@@ -1,11 +1,11 @@
 from typing import List
 from collections import Counter
 
-#1. https://leetcode.com/problems/distribute-candies/description/
+#575. https://leetcode.com/problems/distribute-candies/description/
 def distributeCandies(self, candyType: List[int]) -> int:
     return len(sorted(set(candyType))[:int(len(candyType) / 2)])
 
-#2. https://leetcode.com/problems/count-square-sum-triples/description/
+#1925. https://leetcode.com/problems/count-square-sum-triples/description/
 def countTriples(self, n: int) -> int:
     result = 0
     sqrtN = [i * i for i in range(1, n + 1)]
@@ -14,7 +14,7 @@ def countTriples(self, n: int) -> int:
             if sqrtN[i] + sqrtN[j] in sqrtN: result += 2
     return result
 
-#3. https://leetcode.com/problems/number-complement/description/
+#476. https://leetcode.com/problems/number-complement/description/
 def binary_to_decimal(binary):
     decimal = 0
     power = len(binary) - 1
@@ -30,7 +30,7 @@ def findComplement(self, num: int) -> int:
         else: numB += '1'
     return binary_to_decimal(numB)
 
-#4. https://leetcode.com/problems/apply-operations-to-an-array/description/
+#2460. https://leetcode.com/problems/apply-operations-to-an-array/description/
 def applyOperations(self, nums: List[int]) -> List[int]:
     result = []
     for i in range(len(nums)):
@@ -43,7 +43,7 @@ def applyOperations(self, nums: List[int]) -> List[int]:
         if nums[i] != 0: result.append(nums[i])
     return result + [0] * nums.count(0)
 
-#5. https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/description/
+#2639. https://leetcode.com/problems/find-the-width-of-columns-of-a-grid/description/
 def findColumnWidth(self, matrix: List[List[int]]) -> List[int]:
     result = []
     lenS = 0
@@ -55,7 +55,7 @@ def findColumnWidth(self, matrix: List[List[int]]) -> List[int]:
         lenS = 0
     return result
 
-#6. https://leetcode.com/problems/find-the-middle-index-in-array/description/
+#1991. https://leetcode.com/problems/find-the-middle-index-in-array/description/
 def findMiddleIndex(self, nums: List[int]) -> int:
     left_sum, total_sum = 0, sum(nums)
     for i, n in enumerate(nums):
@@ -65,13 +65,13 @@ def findMiddleIndex(self, nums: List[int]) -> int:
         left_sum += n
     return -1
 
-#7. https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
+#884. https://leetcode.com/problems/uncommon-words-from-two-sentences/description/
 def uncommonFromSentences(self, s1: str, s2: str) -> List[str]:
     s3 = s1.split(" ") + s2.split(" ")
     unique = [val for val, cnt in Counter(s3).items() if cnt == 1]
     return unique
 
-#8. https://leetcode.com/problems/missing-number/description/
+#268. https://leetcode.com/problems/missing-number/description/
 def missingNumber(self, nums: List[int]) -> int:
     nums2 = [i for i in range(0, max(nums) + 1)]
     if sum(nums2) - sum(nums) == 0:
@@ -79,7 +79,7 @@ def missingNumber(self, nums: List[int]) -> int:
         else: return 0
     return  sum(nums2) - sum(nums)
 
-#9. https://leetcode.com/problems/find-lucky-integer-in-an-array/description/
+#1394. https://leetcode.com/problems/find-lucky-integer-in-an-array/description/
 def findLucky(self, arr: List[int]) -> int:
     result = []
     arr1 = set(arr)
@@ -87,7 +87,7 @@ def findLucky(self, arr: List[int]) -> int:
         if i == arr.count(i): result.append(i)
     return max(result) if len(result) != 0 else -1
 
-#10. https://leetcode.com/problems/unique-email-addresses/description/
+#929. https://leetcode.com/problems/unique-email-addresses/description/
 def numUniqueEmails(self, emails: List[str]) -> int:
     numDog, numPlus = 0, 0
     result = []
