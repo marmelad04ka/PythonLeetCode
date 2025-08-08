@@ -1,9 +1,9 @@
 from typing import List
-#1. https://leetcode.com/problems/number-of-1-bits/description/
+#191. https://leetcode.com/problems/number-of-1-bits/description/
 def hammingWeight(self, n: int) -> int:
     return bin(n).count('1')
 
-#2. https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/
+#1380. https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/
 def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
     minR = [min(i) for i in matrix]
     maxC = [i for i in range(len(matrix) - (len(matrix) - len(matrix[0])))]
@@ -17,7 +17,7 @@ def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
         if i in maxC: return [i]
     return []
 
-#3. https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/description/
+#2124. https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/description/
 def checkString(self, s: str) -> bool:
     if 'b' not in s: return True
     indA = 0
@@ -28,7 +28,7 @@ def checkString(self, s: str) -> bool:
             indB = i
     return indB >= indA
 
-#4. https://leetcode.com/problems/fibonacci-number/description/
+#509. https://leetcode.com/problems/fibonacci-number/description/
 def fib(self, n: int) -> int:
     if n == 0: return 0
     fib = [0, 1]
@@ -36,7 +36,7 @@ def fib(self, n: int) -> int:
         fib.append(fib[i - 2] + fib[i - 1])
     return fib[len(fib) - 1] + fib[(len(fib) - 2)]
 
-#5. https://leetcode.com/problems/keep-multiplying-found-values-by-two/description/
+#2154. https://leetcode.com/problems/keep-multiplying-found-values-by-two/description/
 def findFinalValue(self, nums: List[int], original: int) -> int:
     count = original
     nums.sort()
@@ -44,7 +44,7 @@ def findFinalValue(self, nums: List[int], original: int) -> int:
         if i == count: count *= 2
     return count
 
-#6. https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/description/
+#2529. https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/description/
 def maximumCount(self, nums: List[int]) -> int:
     neg, pos = 0, 0
     for i in nums:
@@ -52,7 +52,7 @@ def maximumCount(self, nums: List[int]) -> int:
         if i < 0: neg += 1
     return max(pos, neg)
 
-#7. https://leetcode.com/problems/keyboard-row/description/
+#500. https://leetcode.com/problems/keyboard-row/description/
 def findWords(self, words: List[str]) -> List[str]:
     res = []
     firstRow, secondRow, thirdRow = 'qwertyuiop', 'asdfghjkl', 'zxcvbnm'
@@ -69,7 +69,7 @@ def findWords(self, words: List[str]) -> List[str]:
         count[2] = 0
     return res
 
-#8. https://leetcode.com/problems/sort-array-by-parity-ii/description/
+#922. https://leetcode.com/problems/sort-array-by-parity-ii/description/
 def sortArrayByParityII(self, nums: List[int]) -> List[int]:
     res = []
     odd, even = 1, 0
@@ -82,7 +82,7 @@ def sortArrayByParityII(self, nums: List[int]) -> List[int]:
             odd += 2
     return res
 
-#9. https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/
+#1160. https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/
 def countCharacters(self, words: List[str], chars: str) -> int:
     sumW, count = 0, 0
     strT = chars
@@ -97,7 +97,7 @@ def countCharacters(self, words: List[str], chars: str) -> int:
         count = 0
     return sumW
 
-#10. https://leetcode.com/problems/count-common-words-with-one-occurrence/description/
+#2085. https://leetcode.com/problems/count-common-words-with-one-occurrence/description/
 def countWords(self, words1: List[str], words2: List[str]) -> int:
     res = 0
     for i in words1:
