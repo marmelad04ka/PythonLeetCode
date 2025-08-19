@@ -63,4 +63,17 @@ def largestGoodInteger(self, num: str) -> str:
         if substring[0] == substring[1] == substring[2]:
             if substring > result: result = substring
     return result
-#1.
+#374. https://leetcode.com/problems/guess-number-higher-or-lower/description/
+def guess(num):
+    return 0
+def guessNumber(self, n: int) -> int:
+    arr = [n//2, n]
+    while True:
+        g0 = guess(arr[0])
+        if g0 == 1:
+            arr[0] = arr[0] + ((arr[1] - arr[0]) // 2)
+        if g0 == -1:
+            arr[1] = arr[0]
+            arr[0] = arr[0]//2
+        if g0 == 0: return arr[0]
+        if guess(arr[1]) == 0: return arr[1]
