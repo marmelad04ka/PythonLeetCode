@@ -1,6 +1,6 @@
 import math
 from typing import List
-#1. https://leetcode.com/problems/count-of-matches-in-tournament/description/
+#1688. https://leetcode.com/problems/count-of-matches-in-tournament/description/
 def numberOfMatches(self, n: int) -> int:
     k = 0
     n1 = n
@@ -14,7 +14,7 @@ def numberOfMatches(self, n: int) -> int:
         k += 1
     return res
 
-#2. https://leetcode.com/problems/minimum-number-game/description/
+#2974. https://leetcode.com/problems/minimum-number-game/description/
 def numberGame(self, nums: List[int]) -> List[int]:
     nums.sort()
     arr = []
@@ -23,21 +23,21 @@ def numberGame(self, nums: List[int]) -> List[int]:
         arr.append(nums[i - 1])
     return arr
 
-#3. https://leetcode.com/problems/minimum-operations-to-exceed-threshold-value-i/description/
+#3065. https://leetcode.com/problems/minimum-operations-to-exceed-threshold-value-i/description/
 def minOperations(self, nums: List[int], k: int) -> int:
     return sum([i * 0 + 1 for i in nums if i < k])
 
-#4. https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/
+#1662. https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/description/
 def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
     w1 = ''.join(word1)
     w2 = ''.join(word2)
     return w1 == w2
 
-#5. https://leetcode.com/problems/sum-multiples/description/
+#2652. https://leetcode.com/problems/sum-multiples/description/
 def sumOfMultiples(self, n: int) -> int:
     return sum([i for i in range(1, n + 1) if i%3 == 0 or i%5 == 0 or i%7 == 0])
 
-#6. https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/
+#1342. https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/
 def numberOfSteps(self, num: int) -> int:
     obtain = 0
     res = 0
@@ -53,18 +53,18 @@ def numberOfSteps(self, num: int) -> int:
         res += 1
     return res
 
-#7. https://leetcode.com/problems/truncate-sentence/description/
+#1816. https://leetcode.com/problems/truncate-sentence/description/
 def truncateSentence(self, s: str, k: int) -> str:
     return " ".join(s.split(" ")[:k])
 
-#8. https://leetcode.com/problems/shuffle-string/description/
+#1528. https://leetcode.com/problems/shuffle-string/description/
 def restoreString(self, s: str, indices: List[int]) -> str:
     arr = []
     for i in range(len(s)):
         arr.append(s[indices.index(i)])
     return ''.join(arr)
 
-#9. https://leetcode.com/problems/count-the-digits-that-divide-a-number/description/
+#2520. https://leetcode.com/problems/count-the-digits-that-divide-a-number/description/
 def countDigits(self, num: int) -> int:
     result = 0
     mid = num
@@ -77,7 +77,7 @@ def countDigits(self, num: int) -> int:
         i += 1
     return result
 
-#10. https://leetcode.com/problems/decode-the-message/description/
+#2325. https://leetcode.com/problems/decode-the-message/description/
 def decodeMessage(self, key: str, message: str) -> str:
     alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     uniquel1 = list(dict.fromkeys(key.replace(" ", "")))
